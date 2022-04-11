@@ -68,3 +68,14 @@ def update(daily_calorie_id):
     form.string.data = daily_calorie.dinner
 
   return render_template('create_post.html',title='Updating Calories',form=form)
+
+@daily_calories.route('/<int:daily_calorie_id>/delete',methods=['GET','POST'])
+@login_required
+def delete_post(daily_calorie_id):
+  daily_calorie = DailyCalories.query.get_or_404(daily_calorie_id)
+  if daily_calorie.author != current_user:
+    abort(403)
+  db.session.delete(daily_calorie)
+  db.session.commit()
+  flash('Calories Deleted')
+  return redirect(url_for('core.index'))
