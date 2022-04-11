@@ -39,10 +39,10 @@ class DailyCalories(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
   date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
   title = db.Column(db.String(300), nullable=False)
-  breakfast = db.Column(db.String(600), nullable=True)
-  lunch = db.Column(db.String(600), nullable=True)
-  dinner = db.Column(db.String(600), nullable=True)
-  notes = db.Column(db.Text, nullable=True)
+  breakfast = db.Column(db.String(600), nullable=False)
+  lunch = db.Column(db.String(600), nullable=False)
+  dinner = db.Column(db.String(600), nullable=False)
+  notes = db.Column(db.Text, nullable=False)
 
 
   def __init__(self, title, breakfast, lunch, dinner, notes, user_id):
