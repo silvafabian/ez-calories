@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired
 
-class BlogPostForm(FlaskForm):
+class DailyCaloriesForm(FlaskForm):
   title = StringField('Title', validators=[DataRequired()])
   notes = TextAreaField('Text', validators=[DataRequired()])
   breakfast = StringField('Text', validators=[DataRequired()])
