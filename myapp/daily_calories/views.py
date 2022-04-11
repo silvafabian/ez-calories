@@ -42,30 +42,32 @@ def daily_calories(daily_calories_id):
     post=daily_calories
   )
 
-@daily_calories.route('/<int:daily_calorie_id>/update',methods=['GET','POST'])
+@daily_calories.route('/<int:daily_calories_id>/update',methods=['GET','POST'])
 @login_required
 def update(daily_calorie_id):
   daily_calorie = DailyCalories.query.get_or_404(daily_calorie_id)
+
   if daily_calorie.author != current_user:
     abort(403)
+
   form = DailyCaloriesForm()
+
   if form.validate_on_submit():
     daily_calorie.title = form.title.data
-    daily_calorie.text = form.text.data
-    daily_calorie.breakfast = form.string.data
-    daily_calorie.lunch = form.string.data
-    daily_calorie.dinner = form.string.data
-    daily_calorie.notes = form.text.data
+    daily_calorie.breakfast = form.breakfast.data
+    daily_calorie.lunch = form.lunch.data
+    daily_calorie.dinner = form.dinner.data
+    daily_calorie.notes = form.notes.data
     db.session.commit()
     flash('Calories Updated')
     return redirect(url_for('daily_calories.daily_calorie',daily_calorie_id=daily_calorie.id))
+
   elif request.method == 'GET':
     form.title.data = daily_calorie.title
-    form.text.data = daily_calorie.text
-    form.text.data = daily_calorie.notes
-    form.string.data = daily_calorie.breakfast
-    form.string.data = daily_calorie.lunch
-    form.string.data = daily_calorie.dinner
+    form.note.data = daily_calorie.notes
+    form.breakfast.data = daily_calorie.breakfast
+    form.lunch.data = daily_calorie.lunch
+    form.dinner.data = daily_calorie.dinner
 
   return render_template('create_post.html',title='Updating Calories',form=form)
 
