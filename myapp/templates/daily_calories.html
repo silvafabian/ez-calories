@@ -8,9 +8,9 @@
     <div>
       <a class="btn btn-secondary" href="{{ url_for('daily_calories.update', daily_calories_id=daily_calorie.id) }}">Update</a>
       <br>
-      <form action="{{ url_for('daily_calories.delete_daily_calorie', daily_calories_id=daily_calorie.id) }}" method="POST">
+      <form action="{{ url_for('daily_calories.delete', daily_calories_id=daily_calorie.id) }}" method="POST"> 
       <input class="btn btn-danger" type="submit" value="Delete">
-    </form>
+      </form>
     </div>
   {% endif %}
 </div>

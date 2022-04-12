@@ -4,16 +4,24 @@
     <h1>Keep track of your Calories</h1>
   </div>
   <div class="container">
-    {% for daily_calorie in daily_calories.items %}
-      <div class="card">
-        <div class="car-boy">
-          <h2>
-            <a class="card-title" href="{{url_for('daily_calories.daily_calorie', daily_calories_id=daily_calorie.id)}}">{{daily_calorie.title}}</a>
-          </h2>
-          <a class="btn btn-primary" href="{{url_for('daily_calories.daily_calorie', daily_calories_id=daily_calorie.id)}}">View Details</a>
-        </div>
+    {% if current_user.id %}
+      {% for daily_calorie in daily_calories.items %}
+        {% if daily_calorie.user_id == current_user.id %}
+          <div class="card">
+            <div class="car-boy">
+              <h2>
+                <a class="card-title" href="{{url_for('daily_calories.daily_calorie', daily_calories_id=daily_calorie.id)}}">{{daily_calorie.title}}</a>
+              </h2>
+              <a class="btn btn-primary" href="{{url_for('daily_calories.daily_calorie', daily_calories_id=daily_calorie.id)}}">View Details</a>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <div>
+        <h1>You have No Info Yet</h1>
       </div>
-    {% endfor %}
+    {% endif %}
 </div>
 
 <nav aria-label="Page Navigation example">

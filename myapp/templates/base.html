@@ -9,12 +9,9 @@
   <title>EZ Calories</title>
 </head>
 <body>
-  <ul class="nav">
+  <ul class="nav justify-content-center">
     <li class="nav-link">
       <a href="{{url_for('core.index')}}">Home</a>
-    </li>
-    <li class="nav-link">
-      <a href="{{url_for('core.info')}}">About</a>
     </li>
 
     {% if current_user.is_authenticated %}
@@ -26,7 +23,7 @@
     </li>
     <li class="nav-link">
       <a href="{{url_for('daily_calories.create_post')}}">Create Post</a> 
-  </li>
+    </li>
     {% else %}
     <li class="nav-link">
       <a href="{{url_for('users.login')}}">Log In</a>
