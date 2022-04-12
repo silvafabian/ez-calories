@@ -1,7 +1,6 @@
 from flask import render_template, url_for, flash, request, redirect, Blueprint, abort
 from flask_login import current_user, login_required
 from myapp import db
-from myapp import daily_calories 
 from myapp.models import DailyCalories
 from myapp.daily_calories.forms import DailyCaloriesForm
 
@@ -12,7 +11,7 @@ daily_calories = Blueprint('daily_calories', __name__)
 def create_post():
   form = DailyCaloriesForm()
   if form.validate_on_submit():
-    daily_calories = DailyCalories(
+    daily_calorie = DailyCalories(
       title=form.title.data, 
       text=form.text.data, 
       user_id=current_user.id,
@@ -21,15 +20,15 @@ def create_post():
       dinner=form.string.data,
       notes=form.string.data
     )
-    db.session.add(daily_calories)
+    db.session.add(daily_calorie)
     db.session.commit()
     flash('Calories was Created')
-    print('Calorie post was created')
+    print('Calories post was created')
     return redirect(url_for('core.index'))
   return render_template('create_post.html', form=form)
 
 @daily_calories.route('/<int:daily_calories_id>')
-def daily_calories(daily_calories_id):
+def daily_calorie(daily_calories_id):
   daily_calories = DailyCalories.query.get_or_404(daily_calories_id) 
   return render_template(
     'daily_calories.html', 
@@ -71,7 +70,7 @@ def update(daily_calorie_id):
 
   return render_template('create_post.html',title='Updating Calories',form=form)
 
-@daily_calories.route('/<int:daily_calorie_id>/delete',methods=['GET','POST'])
+@daily_calories.route('/<int:daily_calories_id>/delete',methods=['GET','POST'])
 @login_required
 def delete_post(daily_calorie_id):
   daily_calorie = DailyCalories.query.get_or_404(daily_calorie_id)

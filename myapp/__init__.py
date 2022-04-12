@@ -1,5 +1,3 @@
-# myapp/__init__.py 
-
 from flask import Flask 
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -53,5 +51,6 @@ app.register_blueprint(error_pages)
 from myapp.users.views import users
 app.register_blueprint(users)
 
+# Linking and registering daily_calories views Blueprint
 from myapp.daily_calories.views import daily_calories
 app.register_blueprint(daily_calories)

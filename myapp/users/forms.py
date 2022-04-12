@@ -1,6 +1,3 @@
-#users/forms.py 
-
-# forms related imports
 from ast import Pass
 from click import password_option
 from flask_wtf import FlaskForm

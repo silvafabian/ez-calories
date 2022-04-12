@@ -65,8 +65,8 @@ def account():
   return render_template('account.html', form=form)
 
 @users.route('/<username>')
-def user_posts(username):
-    page = request.args.get('page', 1, type=int)
-    user = User.query.filter_by(username=username).first_or_404()
-    daily_calories = DailyCalories.query.filter_by(author=user).order_by(DailyCalories.date.desc()).paginate(page=page, per_page=5) 
-    return render_template('user_daily_calories.html',daily_calories=daily_calories, user=user)
+def user_post(username):
+  page = request.args.get('page', 1, type=int)
+  user = User.query.filter_by(username=username).first_or_404()
+  daily_calories = DailyCalories.query.filter_by(author=user).order_by(DailyCalories.date.desc()).paginate(page=page, per_page=5) 
+  return render_template('daily_calories.html', daily_calories=daily_calories, user=user)
