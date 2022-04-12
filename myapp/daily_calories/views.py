@@ -43,7 +43,7 @@ def daily_calorie(daily_calories_id):
     dinner=daily_calories.dinner, 
     dinner_calories=daily_calories.dinner_calories, 
     notes=daily_calories.notes, 
-    post=daily_calories
+    daily_calorie=daily_calories
   )
 
 @daily_calories.route('/<int:daily_calories_id>/update',methods=['GET','POST'])

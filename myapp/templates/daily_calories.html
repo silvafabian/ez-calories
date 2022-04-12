@@ -2,7 +2,8 @@
 {% block content %}
 <div class="jumbotron">
   <h1>{{ daily_calorie.title }}</h1>
-  <p>{{daily_calorie.text}}</p>
+  <p>{{daily_calorie.notes}}</p>
+  <p>{{daily_calorie.dinner}}</p>
   {% if daily_calorie.author == current_user %}
     <div>
       <a class="btn btn-secondary" href="{{ url_for('daily_calories.update', daily_calories_id=daily_calorie.id) }}">Update</a>
