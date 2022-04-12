@@ -36,19 +36,25 @@ class DailyCalories(db.Model):
   date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
   title = db.Column(db.String(300), nullable=False)
   breakfast = db.Column(db.String(600), nullable=False)
+  breakfast_calories = db.Column(db.Integer, nullable=False)
   lunch = db.Column(db.String(600), nullable=False)
+  lunch_calories = db.Column(db.Integer, nullable=False)
   dinner = db.Column(db.String(600), nullable=False)
+  dinner_calories = db.Column(db.Integer, nullable=False)
   notes = db.Column(db.Text, nullable=False)
 
 
-  def __init__(self, title, breakfast, lunch, dinner, notes, user_id):
+  def __init__(self, title, breakfast, lunch, dinner, notes, breakfast_calories, lunch_calories, dinner_calories, user_id):
     self.title = title
     self.breakfast = breakfast
+    self.breakfast_calories = breakfast_calories
     self.lunch = lunch
+    self.lunch_calories = lunch_calories
     self.dinner = dinner
+    self.dinner_calories = dinner_calories
     self.notes = notes
     self.user_id = user_id
   
   def __repr__(self):
-    return f"Post ID: {self.id} -- Date: {self.date} --- Title: {self.Title} -- Dinner: {self.dinner} -- Lunch: {self.lunch} -- Breakfast: {self.breakfast} -- Notes: {self.notes}"
+    return f"Post ID: {self.id} -- Date: {self.date} --- Title: {self.Title} -- Dinner: {self.dinner} -- Lunch: {self.lunch} -- Breakfast: {self.breakfast} -- Notes: {self.notes} -- Breakfast Calories: {self.breakfast_calories} -- Lunch Calories: {self.lunch_calories} -- Dinner Calories: {self.dinner_calories}"
 

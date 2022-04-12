@@ -13,12 +13,14 @@ def create_post():
   if form.validate_on_submit():
     daily_calorie = DailyCalories(
       title=form.title.data, 
-      text=form.text.data, 
       user_id=current_user.id,
-      breakfast=form.string.data,
-      lunch=form.string.data,
-      dinner=form.string.data,
-      notes=form.string.data
+      breakfast=form.breakfast.data,
+      breakfast_calories=form.breakfast_calories.data,
+      lunch=form.lunch.data,
+      lunch_calories=form.lunch_calories.data,
+      dinner=form.dinner.data,
+      dinner_calories=form.dinner_calories.data,
+      notes=form.notes.data
     )
     db.session.add(daily_calorie)
     db.session.commit()
@@ -35,8 +37,11 @@ def daily_calorie(daily_calories_id):
     title=daily_calories.title, 
     date=daily_calories.date,
     breakfast=daily_calories.breakfast, 
+    breakfast_calories=daily_calories.breakfast_calories, 
     lunch=daily_calories.lunch,
+    lunch_calories=daily_calories.lunch_calories, 
     dinner=daily_calories.dinner, 
+    dinner_calories=daily_calories.dinner_calories, 
     notes=daily_calories.notes, 
     post=daily_calories
   )
@@ -54,8 +59,11 @@ def update(daily_calorie_id):
   if form.validate_on_submit():
     daily_calorie.title = form.title.data
     daily_calorie.breakfast = form.breakfast.data
+    daily_calorie.breakfast_calorie = form.breakfast_calorie.data
     daily_calorie.lunch = form.lunch.data
+    daily_calorie.lunch_calorie = form.lunch_calorie.data
     daily_calorie.dinner = form.dinner.data
+    daily_calorie.dinner_calorie = form.dinner_calorie.data
     daily_calorie.notes = form.notes.data
     db.session.commit()
     flash('Calories Updated')
@@ -65,8 +73,11 @@ def update(daily_calorie_id):
     form.title.data = daily_calorie.title
     form.note.data = daily_calorie.notes
     form.breakfast.data = daily_calorie.breakfast
+    form.breakfast_calorie.data = daily_calorie.breakfast_calorie
     form.lunch.data = daily_calorie.lunch
+    form.lunch_calorie.data = daily_calorie.lunch_calorie
     form.dinner.data = daily_calorie.dinner
+    form.dinner_calorie.data = daily_calorie.dinner_calorie
 
   return render_template('create_post.html',title='Updating Calories',form=form)
 
