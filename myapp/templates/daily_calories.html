@@ -1,17 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="jumbotron">
-  <h1>{{ daily_calorie.title }}</h1>
-  <p>{{daily_calorie.notes}}</p>
-  <p>{{daily_calorie.dinner}}</p>
-  {% if daily_calorie.author == current_user %}
-    <div>
-      <a class="btn btn-secondary" href="{{ url_for('daily_calories.update', daily_calories_id=daily_calorie.id) }}">Update</a>
-      <br>
-      <form action="{{ url_for('daily_calories.delete', daily_calories_id=daily_calorie.id) }}" method="POST"> 
-      <input class="btn btn-danger" type="submit" value="Delete">
-      </form>
-    </div>
-  {% endif %}
+  <div>
+    <p>Date: {{daily_calorie.title }}</p>
+    <p>Notes: {{daily_calorie.notes}}</p>
+    <p>Breakfast: {{daily_calorie.breakfast}}</p>
+    <p>Calories: {{daily_calorie.breakfast_calories}}</p>
+    <p>Lunch: {{daily_calorie.lunch}}</p>
+    <p>Calories: {{daily_calorie.lunch_calories}}</p>
+    <p>Dinner: {{daily_calorie.dinner}}</p>
+    <p>Calories: {{daily_calorie.dinner_calories}}</p>
+    <p>Total Calories for the day: {{daily_calorie.dinner_calories + daily_calorie.lunch_calories + daily_calorie.breakfast_calories}}</p>
+    {% if daily_calorie.author == current_user %}
+      <div>
+        <a class="btn btn-secondary" href="{{ url_for('daily_calories.update', daily_calories_id=daily_calorie.id) }}">Update</a>
+        <br>
+        <form action="{{ url_for('daily_calories.delete', daily_calories_id=daily_calorie.id) }}" method="POST"> 
+        <input class="btn btn-danger" type="submit" value="Delete">
+        </form>
+      </div>
+    {% endif %}
+  </div>
 </div>
 {% endblock content %}
