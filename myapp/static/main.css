@@ -1,0 +1,19 @@
+body {
+  background-color: #c8b7a6;
+  min-height: 100vh;
+  color: white;
+}
+
+a, a:hover,a:visited, a:focus {
+  text-decoration:none;
+  color: white;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+}
+
+.login-form {
+  
+}

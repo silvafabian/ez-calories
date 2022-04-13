@@ -24,8 +24,8 @@
     {% endif %}
 </div>
 
-<nav aria-label="Page Navigation example">
-  <ul class="pagination justify-content-center">
+<nav aria-label="Page Navigation ">
+  <ul class="pagination justify-content-center bottom-nav">
     {% for page_num in daily_calories.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
       {% if daily_calories.page == page_num %}
       <li class="page-item disabled">
