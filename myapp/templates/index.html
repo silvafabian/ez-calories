@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
   <div class="jumbotron">
-    <h1>Keep track of your Calories</h1>
+    <p>Keep track of your Calories</p>
   </div>
   <div class="container">
     {% if current_user.id %}
@@ -10,7 +10,7 @@
           <div class="card">
             <div class="car-boy">
               <h2>
-                <a class="card-title" href="{{url_for('daily_calories.daily_calorie', daily_calories_id=daily_calorie.id)}}">{{daily_calorie.title}}</a>
+                <a class="card-title" href="{{url_for('daily_calories.daily_calorie', daily_calories_id=daily_calorie.id)}}">{{daily_calorie.notes}}</a>
               </h2>
               <a class="btn btn-primary" href="{{url_for('daily_calories.daily_calorie', daily_calories_id=daily_calorie.id)}}">View Details</a>
             </div>
