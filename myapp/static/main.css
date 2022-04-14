@@ -22,9 +22,18 @@ a, a:hover,a:visited, a:focus {
   text-align: center;
 }
 
-.register-form {
+.register-form, .login-form {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.form-control {
+  width: 250px;
+  height: auto;
+  padding: 0;
+  border: 2px solid #663C00;
+  border-radius: 7px;
 }
