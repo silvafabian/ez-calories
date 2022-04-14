@@ -1,44 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="container">
-    <form class="form-group" method="POST">
-      {{form.hidden_tag()}}
 
-      <div class="form-group">
-        {{form.title.label(class="form-control-label")}}
-        {{form.title(class="form-control form-control-lg")}}
-      </div>
-      <div class="form-group">
-        {{form.notes.label(class="form-control-label")}}
-        {{form.notes(class="form-control form-control-lg")}}
-      </div>
-      <div class="form-group">
-        {{form.breakfast.label(class="form-control-label")}}
-        {{form.breakfast(class="form-control form-control-lg")}}
-      </div>
-      <div class="form-group">
-        {{form.breakfast_calories.label(class="form-control-label")}}
-        {{form.breakfast_calories(class="form-control form-control-lg")}}
-      </div>
-      <div class="form-group">
-        {{form.lunch.label(class="form-control-label")}}
-        {{form.lunch(class="form-control form-control-lg")}}
-      </div>
-      <div class="form-group">
-        {{form.lunch_calories.label(class="form-control-label")}}
-        {{form.lunch_calories(class="form-control form-control-lg")}}
-      </div>
-      <div class="form-group">
-        {{form.dinner.label(class="form-control-label")}}
-        {{form.dinner(class="form-control form-control-lg")}}
-      </div>
-      <div class="form-group">
-        {{form.dinner_calories.label(class="form-control-label")}}
-        {{form.dinner_calories(class="form-control form-control-lg")}}
-      </div>
-      <div class="form-group">
-        {{form.submit(class="btn btn-outline-info")}}
-      </div>
-    </form>
+<form method="POST">
+  {{form.hidden_tag()}}
+  <div class="create-form">
+    {{form.title.label}}
+    {{form.title(class="form-control")}}<br>
+
+    {{form.notes.label}}
+    {{form.notes(class="form-control")}}<br>
+  
+  
+    {{form.breakfast.label}}
+    {{form.breakfast(class="form-control")}}<br>
+  
+  
+    {{form.breakfast_calories.label}}
+    {{form.breakfast_calories(class="form-control")}}<br>
+  
+  
+    {{form.lunch.label}}
+    {{form.lunch(class="form-control")}}<br>
+  
+  
+    {{form.lunch_calories.label}}
+    {{form.lunch_calories(class="form-control")}}<br>
+  
+  
+    {{form.dinner.label}}
+    {{form.dinner(class="form-control")}}<br>
+  
+  
+    {{form.dinner_calories.label}}
+    {{form.dinner_calories(class="form-control")}}<br>
+  
+    <br>
+    {{form.submit(class="submit")}}
   </div>
+</form>
 {% endblock %}

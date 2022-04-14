@@ -38,6 +38,14 @@ a, a:hover,a:visited, a:focus {
   text-align: center;
 }
 
+.create-form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 .form-control {
   width: 250px;
   height: auto;
@@ -50,7 +58,7 @@ a, a:hover,a:visited, a:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 25%;
+  margin-top: 20%;
 }
 
 #card1 {
