@@ -54,11 +54,20 @@ a, a:hover,a:visited, a:focus {
   border-radius: 7px;
 }
 
+.details {
+  text-align: center;
+  margin-top: 40%;
+}
+
+.btn{
+  color: #663C00;
+}
+
 #card-cont {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 20%;
+  margin-top: 17%;
 }
 
 #card1 {
@@ -67,4 +76,5 @@ a, a:hover,a:visited, a:focus {
   width: 45%;
   align-self: center;
   text-align: center;
+  border-radius: 7px;
 }
