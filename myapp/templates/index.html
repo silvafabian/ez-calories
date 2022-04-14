@@ -1,28 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="container">
-    {% if current_user.id %}
-      {% for daily_calorie in daily_calories.items %}
-        {% if daily_calorie.user_id == current_user.id %}
-          <div class="card">
-            <div class="card-body">
-              <h2>
-                <a class="card-title" href="{{url_for('daily_calories.daily_calorie', daily_calories_id=daily_calorie.id)}}">{{daily_calorie.notes}}</a>
-              </h2>
-              <a class="btn btn-primary" href="{{url_for('daily_calories.daily_calorie', daily_calories_id=daily_calorie.id)}}">View Details</a>
-            </div>
+
+<div>
+  {% if current_user.id %}
+  {% for daily_calorie in daily_calories.items %}
+    <div id="card-cont">
+      {% if daily_calorie.user_id == current_user.id %}
+          <div id="card1">
+            <h2>
+              <a class="card-title" href="{{url_for('daily_calories.daily_calorie', daily_calories_id=daily_calorie.id)}}">{{daily_calorie.notes}}</a>
+            </h2>
+            <a class="btn btn-primary" href="{{url_for('daily_calories.daily_calorie', daily_calories_id=daily_calorie.id)}}">View Details</a>
           </div>
-        {% endif %}
-      {% endfor %}
-    {% else %}
-      <div class="home-message">
-        <div class="landing-page-message">
-          <h1 class="landing-page-title">EZ Calories</h1>
-          <p class="landing-page-p">The simple, effective way to keep track of your daily intake.</p>
-        </div> 
-      </div>
-    {% endif %}
-  </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="home-message">
+      <div class="landing-page-message">
+        <h1 class="landing-page-title">EZ Calories</h1>
+        <p class="landing-page-p">The simple, effective way to keep track of your daily intake.</p>
+      </div> 
+    </div>
+  {% endif %}
+</div>
 
 <nav aria-label="Page Navigation ">
   <ul class="pagination justify-content-center bottom-nav">

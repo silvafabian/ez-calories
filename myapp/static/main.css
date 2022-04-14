@@ -45,3 +45,18 @@ a, a:hover,a:visited, a:focus {
   border: 2px solid #663C00;
   border-radius: 7px;
 }
+
+#card-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 25%;
+}
+
+#card1 {
+  margin-bottom: 50px;
+  background-color: #9b7b5d74;
+  width: 45%;
+  align-self: center;
+  text-align: center;
+}
