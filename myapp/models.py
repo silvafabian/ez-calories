@@ -20,7 +20,6 @@ class User(db.Model, UserMixin):
     self.username = username
     self.password_hash = generate_password_hash(password)
 
-#going to use this in our login view 
   def check_password(self, password):
     return check_password_hash(self.password_hash, password)
   

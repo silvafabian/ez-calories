@@ -1,12 +1,12 @@
 body {
   background-color: #c8b7a6;
   min-height: 100vh;
-  color: white;
+  color: #663C00;
 }
 
 a, a:hover,a:visited, a:focus {
   text-decoration:none;
-  color: white;
+  color: #663C00;
 }
 
 .bottom-nav {
@@ -14,6 +14,17 @@ a, a:hover,a:visited, a:focus {
   bottom: 0;
 }
 
-.login-form {
-  
+.landing-page-message {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.register-form {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -1,8 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="jumbotron">
-    <p>Keep track of your Calories</p>
-  </div>
   <div class="container">
     {% if current_user.id %}
       {% for daily_calorie in daily_calories.items %}
@@ -18,11 +15,14 @@
         {% endif %}
       {% endfor %}
     {% else %}
-      <div>
-        <h1>You have No Info Yet</h1>
+      <div class="home-message">
+        <div class="landing-page-message">
+          <h1 class="landing-page-title">EZ Calories</h1>
+          <p class="landing-page-p">The simple, effective way to keep track of your daily intake.</p>
+        </div> 
       </div>
     {% endif %}
-</div>
+  </div>
 
 <nav aria-label="Page Navigation ">
   <ul class="pagination justify-content-center bottom-nav">
